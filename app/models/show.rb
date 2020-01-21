@@ -3,7 +3,9 @@ class Show < ActiveRecord::Base
   has_many :actors, through: :characters
   
   def actors_list
-    self.actors.full_name
+    self.actors.map do |t|
+      t.full_name
+    end
   end
   
 end
